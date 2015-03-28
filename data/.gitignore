@@ -1,0 +1,3 @@
+# This file is here for a reason!
+# Without it, git will not create the data directory on checkout.
+seen.db

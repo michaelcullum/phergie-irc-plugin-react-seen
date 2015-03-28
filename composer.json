@@ -1,0 +1,45 @@
+{
+    "name": "renegade334/phergie-irc-plugin-react-seen",
+    "description": "Phergie plugin that provides a command to display a user's last channel activity",
+    "keywords": [ "phergie", "irc", "bot", "plugin" ],
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Renegade334",
+            "homepage": "http://www.renegade334.me.uk/",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "irc": "irc://irc.freenode.net/phergie",
+        "issues": "https://github.com/Renegade334/phergie-irc-plugin-react-seen/issues",
+        "source": "https://github.com/Renegade334/phergie-irc-plugin-react-seen"
+    },
+    "require": {
+        "phergie/phergie-irc-bot-react": "~1",
+        "phergie/phergie-irc-plugin-react-command": "~1.0",
+        "doctrine/dbal": "2.5.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.5.*",
+        "phake/phake": "2.0.0-beta2"
+    },
+    "suggest": {
+        "phergie/phergie-irc-plugin-react-commandhelp": "provides interactive help for commands"
+    },
+    "autoload": {
+        "psr-4": {
+            "Renegade334\\Phergie\\Plugin\\React\\Seen\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Renegade334\\Phergie\\Tests\\Plugin\\React\\Seen\\": "tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
