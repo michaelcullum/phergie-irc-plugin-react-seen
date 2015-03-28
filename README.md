@@ -11,7 +11,7 @@ The recommended method of installation is [through composer](http://getcomposer.
 ```JSON
 {
     "require": {
-        "renegade334/phergie-irc-plugin-react-seen": "dev-master"
+        "renegade334/phergie-irc-plugin-react-seen": "~1.0"
     }
 }
 ```
