@@ -28,6 +28,8 @@ use Doctrine\DBAL\DriverManager;
  */
 class Plugin extends AbstractPlugin
 {
+    const ERR_DATABASE_ERROR = 1;
+
     const TYPE_JOIN = 0;
     const TYPE_PART = 1;
     const TYPE_KICK = 2;
@@ -121,6 +123,7 @@ class Plugin extends AbstractPlugin
      * Initialise plugin handler.
      *
      * @param \Doctrine\DBAL\Connection $db Accept a dummy database handle, for use by the test suite
+     * @throws \RuntimeException on database initialisation failure
      */
     public function __construct(DBALConnection $db = null)
     {
@@ -138,8 +141,11 @@ class Plugin extends AbstractPlugin
                 );
                 $this->db->connect();
             } catch (\Exception $e) {
-                $this->db = null;
-                return;
+                throw new \RuntimeException(
+                    'An error occurred initialising the database handler',
+                    self::ERR_DATABASE_ERROR,
+                    $e
+                );
             }
         }
 
@@ -166,11 +172,6 @@ class Plugin extends AbstractPlugin
      */
     public function getSubscribedEvents()
     {
-        // No point in listening if we can't do anything with it...
-        if ($this->db === null) {
-            return [];
-        }
-
         return array(
             'command.seen' => 'handleCommand',
             'command.seen.help' => 'handleCommandHelp',
