@@ -129,8 +129,7 @@ class Plugin extends AbstractPlugin
     {
         if ($db !== null) {
             $this->db = $db;
-        }
-        else {
+        } else {
             try {
                 $this->db = DriverManager::getConnection(
                     array(
@@ -313,8 +312,7 @@ class Plugin extends AbstractPlugin
         if ($this->isInChannel($server, $source, $target))
         {
             $prefix = "\x02$target\x02 is currently in the channel! Last seen";
-        }
-        else {
+        } else {
             $prefix = "\x02$target\x02 was last seen";
         }
 
@@ -715,7 +713,7 @@ class Plugin extends AbstractPlugin
         $channel = array_shift($params);
 
         $this->getLogger()->debug('Adding names to channel', array('server' => $server, 'channel' => $channel));
-        
+
         $names = (count($params) == 1) ? explode(' ', $params[0]) : $params;
 
         foreach (array_filter($names) as $name) {
